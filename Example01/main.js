@@ -37,6 +37,25 @@ var Hapinasu = new Pokemon(
     "Hapinasu"
 );
 
+$(function () {
+    function Render() {
+        $("#fushigidane-name").text(Fushigidane.japanese);
+        $("#fushigidane-hp").text(Fushigidane.hp);
+        $("#hapinasu-name").text(Hapinasu.japanese);
+        $("#hapinasu-hp").text(Hapinasu.hp);
+    }
+    Render();
+    $("#fushigidane-btn").click(function () {
+        Fushigidane.attack(Hapinasu);
+        Render();
+    });
+
+    $("#hapinasu-btn").click(function () {
+        Hapinasu.attack(Fushigidane);
+        Render();
+    });
+});
+
 console.log(Hapinasu.japanese + " HP:" + Hapinasu.hp);
 console.log(Fushigidane.japanese + " HP:" + Fushigidane.hp);
 Hapinasu.attack(Fushigidane);
